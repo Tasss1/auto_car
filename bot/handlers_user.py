@@ -162,14 +162,23 @@ async def handle_choice(message: types.Message):
 
                     # --- Текстовая информация ---
                     text_info = (
-                        f"🚘 {car.title}\n\n"
-                        f"{car.description or 'Без описания'}\n\n"
-                        f"💰 Цена: {car.get_price_range_display()}\n"
-                        f"⚙️ Кузов: {car.get_body_type_display()}\n"
-                        f"🎨 Цвет: {car.get_color_display()}\n"
-                        f"⛽ Топливо: {car.get_fuel_type_display()}\n"
-                        f"📌 Состояние: {car.get_condition_display()}\n"
-                        f"👤 Владелец: {car.user}"
+                        "🚗 *Информация об автомобиле*\n"
+                        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+
+                        f"🏷 *{car.title}*\n\n"
+
+                        f"📝 *Описание:*\n"
+                        f"{car.description or 'Описание отсутствует'}\n\n"
+
+                        "💎 *Характеристики:*\n"
+                        f"• 💰 *Цена:* {car.get_price_range_display()}\n"
+                        f"• 🏛 *Кузов:* {car.get_body_type_display()}\n"
+                        f"• 🎨 *Цвет:* {car.get_color_display()}\n"
+                        f"• ⛽ *Топливо:* {car.get_fuel_type_display()}\n"
+                        f"• 📌 *Состояние:* {car.get_condition_display()}\n\n"
+
+                        f"👤 *Владелец:* {car.user}\n"
+                        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
                     )
                     await message.answer(text_info)
             else:
